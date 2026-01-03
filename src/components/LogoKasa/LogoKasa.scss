@@ -1,0 +1,22 @@
+@use '../../styles/_mixins' as *;
+@use '../../styles/_variables' as *;
+
+.logo-kasa {
+	fill: var(--logo-color, $primary-color);
+}
+
+.logoContainer {
+	width: 145px;
+	height: 47px;
+
+	
+	&--footer-logo {
+		width: 122px;
+		height: 39px;
+	}
+
+	@include respond-to('desktop') {
+		width: 211px;
+		height: 68px;
+	}
+}
