@@ -20,6 +20,7 @@ export default function LodgingSheet() {
 				const data = await fetchLodgingById(id)
 				setLodging(data)
 			} catch (error) {
+				console.error('Erreur lors du chargement du logement:', error)
 				navigate('/error', { replace: true })
 			} finally {
 				setLoading(false)
@@ -38,7 +39,7 @@ export default function LodgingSheet() {
 	return (
 		<div className="lodging-sheet-container">
 			<Slideshow pictures={lodging.pictures} />
-		 	<div className="lodging-sheet-content">
+			<div className="lodging-sheet-content">
 				<div className="lodging-sheet-content-left">
 					<div className="lodging-sheet-content-header">
 						<h1 className="lodging-sheet-content-title">{lodging.title}</h1>
@@ -52,7 +53,11 @@ export default function LodgingSheet() {
 				</div>
 				<div className="lodging-sheet-content-right">
 					<div className="lodging-sheet-content-host">
-						<img className="lodging-sheet-content-host-picture" src={lodging.host.picture} alt={lodging.host.name} />
+						<img
+							className="lodging-sheet-content-host-picture"
+							src={lodging.host.picture}
+							alt={lodging.host.name}
+						/>
 						<p className="lodging-sheet-content-host-name">{lodging.host.name}</p>
 					</div>
 					<Rating rating={lodging.rating} />
@@ -60,13 +65,18 @@ export default function LodgingSheet() {
 			</div>
 
 			<div className="lodging-sheet-content-collapse">
-				<Collapse title="Description" content={lodging.description} size="medium"/>
-				<Collapse title="Équipements" size="medium" content={lodging.equipments.map((equipment, index) => (
-					<span key={equipment}>{equipment}{index < lodging.equipments.length - 1 && <br />}</span>
-				))} />
+				<Collapse title="Description" content={lodging.description} size="medium" />
+				<Collapse
+					title="Équipements"
+					size="medium"
+					content={lodging.equipments.map((equipment, index) => (
+						<span key={equipment}>
+							{equipment}
+							{index < lodging.equipments.length - 1 && <br />}
+						</span>
+					))}
+				/>
 			</div>
-
-
 		</div>
 	)
 }
