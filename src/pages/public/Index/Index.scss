@@ -14,6 +14,42 @@
 	margin-bottom: 27px;
 }
 
+.loader {
+	margin: 100px auto;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.loader-wheel {
+	animation: spin 1s infinite linear;
+	border: 2px solid rgba(225, 225, 225, 0.5);
+	border-left: 4px solid #000;
+	border-radius: 50%;
+	height: 50px;
+	margin-bottom: 10px;
+	width: 50px;
+}
+
+.loader-text {
+	width: 100%;
+	color: $secondary-color;
+}
+
+.loader-text:after {
+	content: 'Chargement';
+	animation: load 2s linear infinite;
+}
+
+.warning {
+	text-align: center;
+	margin: 100px auto;
+}
+
+.warning-text {
+	color: $secondary-color;
+}
+
 @include respond-to('tablet') {
 	.lodgings-grid {
 		display: grid;
@@ -33,7 +69,7 @@
 
 	.lodgings-grid {
 		padding: 56px 108px 43px 108px;
-		background-color: #F6F6F6;
+		background-color: #f6f6f6;
 		border-radius: 25px;
 		grid-column-gap: 60px;
 		grid-row-gap: 50px;
@@ -52,5 +88,29 @@
 		width: 1240px;
 		padding: 56px 50px 43px 50px;
 		grid-template-columns: repeat(3, 1fr);
+	}
+}
+
+@keyframes spin {
+	0% {
+		transform: rotate(0deg);
+	}
+	100% {
+		transform: rotate(360deg);
+	}
+}
+
+@keyframes load {
+	0% {
+		content: 'Chargement';
+	}
+	33% {
+		content: 'Chargement.';
+	}
+	67% {
+		content: 'Chargement..';
+	}
+	100% {
+		content: 'Chargement...';
 	}
 }

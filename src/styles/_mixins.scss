@@ -2,7 +2,7 @@
 @use './_breakpoints' as *;
 
 @function rem($px, $base: 16) {
-	@return ($px / $base) * 1rem;
+	@return calc(($px / $base) * 1rem);
 }
 
 @function bp($key) {

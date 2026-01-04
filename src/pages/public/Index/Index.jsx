@@ -11,11 +11,15 @@ export default function Index() {
 	const [error, setError] = useState(null)
 	const [minRange, setMinRange] = useState(3)
 	const breakpoint = useBreakpoint()
+	const sleep = (ms) => {
+		return new Promise((resolve) => setTimeout(resolve, ms))
+	}
 
 	useEffect(() => {
 		const loadLodgings = async () => {
 			try {
 				setLoading(true)
+				await sleep(500) // Simulation du délaie de chargement
 				const lodgings = await fetchLodgings()
 				setLodgings(lodgings)
 			} catch (e) {
@@ -54,10 +58,33 @@ export default function Index() {
 	}, [lodgings, itemsToShow])
 
 	if (loading) {
-		return <div>Chargement des logements...</div>
+		return (
+			<>
+				<Banner
+					image="/src/assets/BannerSRC1.png"
+					title="Chez vous, partout et ailleurs"
+					className="index-banner"
+				/>
+				<div className="loader">
+					<div className="loader-wheel"></div>
+					<div className="loader-text"></div>
+				</div>
+			</>
+		)
 	}
 	if (error) {
-		return <div>Erreur lors du chargement des logements: {error}</div>
+		return (
+			<>
+				<Banner
+					image="/src/assets/BannerSRC1.png"
+					title="Chez vous, partout et ailleurs"
+					className="index-banner"
+				/>
+				<div className="warning">
+					<p className="warning-text">Erreur lors du chargement des logements: {error}</p>
+				</div>
+			</>
+		)
 	}
 
 	return (
