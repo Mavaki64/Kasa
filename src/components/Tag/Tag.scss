@@ -21,9 +21,19 @@
         white-space: nowrap;
     }
 
+    @include respond-to('tablet') {
+        width: 100px;
+        height: 25px;
+        border-radius: 7px;
+
+        &__text {
+            font-size: 12px;
+            font-weight: 600;
+        }
+    }
+
     @include respond-to('desktop') {
         width: 115px;
-        height: 25px;
         border-radius: 10px;
 
         &__text {
