@@ -2,123 +2,163 @@
 @use '../../styles/_mixins' as *;
 
 .collapse {
-    &--medium,
-    &--large {
-        width: 335px;
-    }
+	&--medium,
+	&--large {
+		width: 335px;
+	}
 
-    &__header {
-        background-color: $primary-color;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        position: relative;
-        z-index: 1;
-        border-radius: 5px;
-        
-        &--medium,
-        &--large {
-            height: 30px;
-            padding: 10px;
-        }
-    }
+	&__header {
+		background-color: $primary-color;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		border-radius: 5px;
+		border: none;
+		cursor: pointer;
+		width: 100%;
+		padding: 10px;
+		height: 30px;
+		position: relative;
+		z-index: 1;
 
-    &__title {
-        color: $tertiary-color;
-        text-align: left;
-        font-weight: 700;
-        
-        &--medium,
-        &--large {
-            font-size: 13px;
-        }
-    }
+		&--medium,
+		&--large {
+			height: 30px;
+			padding: 10px;
+		}
 
-    &__icon {
-        color: $tertiary-color;
-        
-        &--medium,
-        &--large {
-            font-size: 16px;
-        }
-    }
+		&:focus {
+			outline: none;
+		}
+	}
 
-    &__content {
-        color: $secondary-color;
-        text-align: left;
-        background-color: #f6f6f6;
-        display: flex;
-        flex-direction: column;
-        font-weight: 400;
-        margin-top: -10px;
-        
-        &--medium,
-        &--large {
-            font-size: 12px;
-            padding: 23px 20px 19px 20px;
-            gap: 2.33px;
-        }
-    }
+	&__title {
+		color: $tertiary-color;
+		text-align: left;
+		font-weight: 700;
+		margin: 0;
 
-    // Media query desktop - valeurs spécifiques pour chaque variante
-    @include respond-to('desktop') {
-        
-        &--medium {
-            width: 582px;
-        }
-        
-        &--large {
-            width: 1023px;
-        }
+		&--medium,
+		&--large {
+			font-size: 13px;
+		}
+	}
 
-        &__header {
-            
-            &--medium {
-                height: 52px;
-                padding: 10px 20px 10px 10px;
-            }
-            
-            &--large {
-                height: 54px;
-                padding: 10px 15px 10px 15px;
-            }
-        }
+	&__icon {
+		color: $tertiary-color;
+		transition: transform 0.3s ease;
 
-        &__title {
-            
-            &--medium {
-                font-size: 18px;
-            }
-            
-            &--large {
-                font-size: 24px;
-            }
-        }
+		&--open {
+			transform: rotate(-180deg);
+		}
 
-        &__icon {
-            
-            &--medium {
-                font-size: 24px;
-            }
-            
-            &--large {
-                font-size: 24px;
-            }
-        }
+		&--medium,
+		&--large {
+			font-size: 16px;
+		}
+	}
 
-        &__content {
-            
-            &--medium {
-                font-size: 18px;
-                padding: 35px 28px 20px 20px;
-                gap: 4.66px;
-            }
-            
-            &--large {
-                font-size: 18px;
-                padding: 26px 20px 20px 20px;
-                gap: 4.66px;
-            }
-        }
-    }
+	&__content {
+		color: $secondary-color;
+		text-align: left;
+		background-color: #f6f6f6;
+		display: flex;
+		flex-direction: column;
+		font-weight: 400;
+		overflow: hidden;
+		max-height: 0;
+		opacity: 0;
+		transition: max-height 0.3s ease, opacity 0.3s ease, padding 0.3s ease;
+		padding: 0 20px;
+
+		&--open {
+			max-height: 1000px;
+			opacity: 1;
+			padding: 13px 20px 19px 20px;
+		}
+
+		&--medium,
+		&--large {
+			font-size: 12px;
+			gap: 2.33px;
+		}
+	}
+
+	&__content-text {
+		opacity: 0;
+		transform: translateY(-30px);
+		transition: opacity 0.1s ease, transform 0.1s ease;
+	}
+
+	&__content--open &__content-text {
+		opacity: 1;
+		transform: translateY(0);
+		transition: opacity 0.2s ease 0.1s, transform 0.2s ease 0.1s;
+	}
+
+	@include respond-to('tablet') {
+		&--medium {
+			width: 100%;
+			max-width: 582px;
+		}
+
+		&--large {
+			width: 100%;
+			max-width: 1023px;
+		}
+
+		&__header {
+			&--medium {
+				height: 52px;
+				padding: 10px 20px 10px 10px;
+			}
+
+			&--large {
+				height: 54px;
+				padding: 10px 15px 10px 15px;
+			}
+		}
+
+		&__title {
+			&--medium {
+				font-size: 18px;
+			}
+
+			&--large {
+				font-size: 24px;
+			}
+		}
+
+		&__icon {
+			&--medium {
+				font-size: 24px;
+			}
+
+			&--large {
+				font-size: 24px;
+			}
+		}
+
+		&__content {
+			&--medium {
+				font-size: 18px;
+				gap: 4.66px;
+			}
+
+			&--large {
+				font-size: 18px;
+				gap: 4.66px;
+			}
+
+			&--open {
+				&--medium {
+					padding: 25px 28px 20px 20px;
+				}
+
+				&--large {
+					padding: 16px 20px 20px 20px;
+				}
+			}
+		}
+	}
 }
