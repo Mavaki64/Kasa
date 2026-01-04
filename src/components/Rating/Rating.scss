@@ -1,0 +1,17 @@
+@use '@/styles/_variables' as *;
+@use '@/styles/_mixins' as *;
+
+.rating{
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 7px;
+}
+
+.colored_star{
+    color: $primary-color;
+}
+
+.empty_star{
+    color: #E3E3E3;
+}

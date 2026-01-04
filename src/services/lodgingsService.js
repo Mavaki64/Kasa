@@ -11,3 +11,17 @@ export const fetchLodgings = async () => {
 		throw error
 	}
 }
+
+export const fetchLodgingById = async (id) => {
+	try {
+		const lodgings = await fetchLodgings()
+		const lodging = lodgings.find((lodging) => lodging.id === id)
+		if (!lodging) {
+			throw new Error('Logement non trouvé')
+		}
+		return lodging
+	} catch (e) {
+		console.error('Erreur fetch lodging by id:', e)
+		throw e
+	}
+}

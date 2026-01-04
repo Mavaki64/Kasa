@@ -1,0 +1,217 @@
+@use '@/styles/_variables' as *;
+@use '@/styles/_mixins' as *;
+
+.content{
+    margin-top: 27px;
+    margin-bottom: 27px;
+}
+
+.lodging-sheet-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 13px;
+    max-width: 335px;
+    width: 100%;
+}
+
+.lodging-sheet{
+    &-content-left{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+        width: 100%;
+        margin-top: 2px;
+    }
+    &-content-header{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 5px;
+    }
+    &-content-title{
+        font-size: 18px;
+        font-weight: 500;
+        color: $primary-color;
+        vertical-align: bottom;
+    }
+    &-content-location{
+        font-size: 14px;
+        font-weight: 500;
+        color: $secondary-color;
+        vertical-align: bottom;
+    }
+    &-content-tags{
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
+        gap: 10px;
+        flex-wrap: wrap;
+    }
+    
+    &-content-right{
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content: space-between;
+        margin-top: 3px;
+        width: 100%;
+        align-items: center;
+    }
+    &-content-host{
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content: flex-end;
+        align-items: center;
+        gap: 10px;
+    }
+    &-content-host-picture{
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        flex-shrink: 0;
+    }
+    &-content-host-name{
+        font-size: 12px;
+        font-weight: 500;
+        max-width: 69px;
+        color: $primary-color;
+        vertical-align: bottom;
+        text-align: right;
+        text-wrap: wrap;
+    }
+    &-content-rating{
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
+        gap: 7px;
+    }
+
+    &-content-collapse{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+    &-content{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 13px;
+        width: 100%;
+    }
+}
+
+@include respond-to('tablet') {
+    .lodging-sheet-container{
+        max-width: 700px;
+    }
+    .lodging-sheet{
+        &-content-title{
+            font-size: 24px;
+        }
+        &-content-location{
+            font-size: 16px;
+        }
+        &-content-tags{
+            font-size: 16px;
+        }
+        &-content-host-name{
+            font-size: 16px;
+        }
+        &-content-host-picture{
+            width: 48px;
+            height: 48px;
+            margin-right: 3px;
+        }
+        &-content{
+            flex-direction: row;
+            justify-content: space-between;
+            width: 100%;
+        }
+        &-content-right{
+            flex-direction: column;
+            gap: 20px;
+            align-items: flex-end;
+            margin-top: 0;
+        }
+
+        &-content-collapse{
+            width: 100%;
+        }
+    }
+}
+@include respond-to('desktop') {
+    .header{
+        margin-top: 5px;
+    }
+
+    .content{
+        margin-top: 50px;
+        margin-bottom: 50px;
+    }
+
+    .lodging-sheet-container{
+        max-width: 956px;
+        gap: 24px;
+    }
+    .lodging-sheet{
+        &-content-collapse{
+            flex-direction: row;
+            justify-content: space-between;
+            width: 100%;
+            align-items: flex-start;
+        }
+        &-content-host-picture{
+            width: 64px;
+            height: 64px;
+            margin-right: 3px;
+        }
+    }
+}
+@include respond-to('large-desktop') {
+    .lodging-sheet-container{
+        max-width: 1240px;
+    }
+
+    .lodging-sheet{
+        &-content-title{
+            font-size: 36px;
+        }
+        &-content-location{
+            font-size: 18px;
+        }
+        &-content-tags{
+            font-size: 18px;
+        }
+        &-content-host-name{
+            font-size: 18px;
+        }
+        
+        &-content-rating{
+            gap: 10px;
+        }
+
+        &-content-right{
+            flex-direction: column;
+            gap: 20px;
+            align-items: flex-end;
+            margin-top: 0;
+        }
+
+        &-content-left{
+            margin-top: 6px;
+            gap: 20px;
+        }
+
+        &-content-header{
+            gap: 0px;
+        }
+
+        &-content{
+            flex-direction: row;
+            justify-content: space-between;
+            width: 100%;
+        }
+    }
+}
