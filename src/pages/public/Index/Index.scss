@@ -1,0 +1,56 @@
+@use '@/styles/_variables' as *;
+@use '@/styles/_mixins' as *;
+
+.content {
+	margin-top: 27px;
+}
+
+.lodgings-grid {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 20px;
+	padding-top: 22px;
+	margin-bottom: 27px;
+}
+
+@include respond-to('tablet') {
+	.lodgings-grid {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		grid-gap: 20px;
+	}
+
+	.content {
+		padding: 0 34px 0 34px;
+	}
+}
+
+@include respond-to('desktop') {
+	.content {
+		margin-top: 50px;
+	}
+
+	.lodgings-grid {
+		padding: 56px 108px 43px 108px;
+		background-color: #F6F6F6;
+		border-radius: 25px;
+		grid-column-gap: 60px;
+		grid-row-gap: 50px;
+		margin-top: 43px;
+		width: 956px;
+		margin-bottom: 50px;
+	}
+
+	.header {
+		margin-top: 5px;
+	}
+}
+
+@include respond-to('large-desktop') {
+	.lodgings-grid {
+		width: 1240px;
+		padding: 56px 50px 43px 50px;
+		grid-template-columns: repeat(3, 1fr);
+	}
+}

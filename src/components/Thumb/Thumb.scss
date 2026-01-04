@@ -22,10 +22,11 @@
         position: absolute;
         bottom: 15px;
         left: 20px;
-        right: 20px;
+        right: 60px;
+        text-wrap: balance;
     }
 
-    @include respond-to('desktop') {
+    @include respond-to('tablet') {
         width: 340px;
         height: 340px;
 
