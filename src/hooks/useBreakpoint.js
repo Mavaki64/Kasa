@@ -7,6 +7,11 @@ const breakpoints = {
     'large-desktop': 1440,
 }
 
+/**
+ * Hook pour récupérer le breakpoint actuel
+ * @returns {string} Le breakpoint actuel
+ * @example useBreakpoint() // 'mobile' si la largeur de la fenêtre est inférieure à 375px, 'tablet' si la largeur de la fenêtre est supérieure ou égale à 768px, 'desktop' si la largeur de la fenêtre est supérieure ou égale à 1024px, 'large-desktop' si la largeur de la fenêtre est supérieure ou égale à 1440px
+ */
 export const useBreakpoint = () => {
     const [breakpoint, setBreakpoint] = useState(() => {
         if (typeof window === 'undefined') return 'mobile'
@@ -40,6 +45,12 @@ export const useBreakpoint = () => {
     return breakpoint
 }
 
+/**
+ * Hook pour vérifier si le breakpoint actuel est inférieur à un breakpoint donné
+ * @param {string} breakpointName - Le nom du breakpoint à vérifier
+ * @returns {boolean} true si le breakpoint actuel est inférieur au breakpoint donné, false sinon
+ * @example useIsBelowBreakpoint('tablet') // true si le breakpoint actuel est inférieur à tablet
+ */
 export const useIsBelowBreakpoint = (breakpointName) => {
 	const currentBreakpoint = useBreakpoint()
 	const breakpointOrder = ['mobile', 'tablet', 'desktop', 'large-desktop']

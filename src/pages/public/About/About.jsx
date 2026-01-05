@@ -2,6 +2,11 @@ import './About.scss'
 import { Banner } from '@/components/Banner'
 import { Collapse } from '@/components/Collapse'
 
+/**
+ * Page About
+ * @returns {JSX.Element} La page About
+ * @example <About />
+ */
 export default function About() {
 	const collapseData = [
 		{

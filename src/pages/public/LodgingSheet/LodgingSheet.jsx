@@ -7,6 +7,11 @@ import { Rating } from '@/components/Rating'
 import { Tag } from '@/components/Tag'
 import { Collapse } from '@/components/Collapse'
 
+/**
+ * Page LodgingSheet
+ * @returns {JSX.Element} La page LodgingSheet
+ * @example <LodgingSheet />
+ */
 export default function LodgingSheet() {
 	const { id } = useParams()
 	const navigate = useNavigate()

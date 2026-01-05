@@ -1,6 +1,15 @@
 import { useState } from 'react'
 import './Collapse.scss'
 
+/**
+ * Component Collapse
+ * @param {Object} props - Les props du component
+ * @param {string} props.title - Le titre du collapse (obligatoire)
+ * @param {string} props.content - Le contenu du collapse (obligatoire)
+ * @param {string} props.size - La taille du collapse (optionnel) 'medium' ou 'large' (par défaut 'large')
+ * @returns {JSX.Element} Le component Collapse
+ * @example <Collapse title="Titre" content="Contenu" size="large" />
+ */
 export default function Collapse({ title, content, size = 'large' }) {
 	const [isOpen, setIsOpen] = useState(false)
 
