@@ -6,6 +6,9 @@ import { About } from '@/pages/public/About'
 import { Error } from '@/pages/public/Error'
 import LodgingSheet from '@/pages/public/LodgingSheet/LodgingSheet'
 
+/**
+ * Point d'entrée de l'application
+ */
 const root = document.getElementById('root')
 
 createRoot(root).render(

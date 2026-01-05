@@ -1,5 +1,13 @@
 import './LogoKasa.scss'
 
+/**
+ * Component LogoKasa
+ * @param {Object} props - Les props du component
+ * @param {string} props.color - La couleur du logo (obligatoire)
+ * @param {string} props.className - La classe du logo (optionnel)
+ * @returns {JSX.Element} Le component LogoKasa
+ * @example <LogoKasa color="#000000" className="logoContainer--footer-logo" /> // Affiche le logo en noir
+ */
 export default function LogoKasa({ color, className = 'logoContainer'}) {
 	return (
 		<div className={className}>

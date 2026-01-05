@@ -1,6 +1,11 @@
 import './Error.scss'
 import { Link } from 'react-router-dom'
 
+/**
+ * Page Error
+ * @returns {JSX.Element} La page Error
+ * @example <Error />
+ */
 export default function Error() {
 	return (
 		<div className="error-container">

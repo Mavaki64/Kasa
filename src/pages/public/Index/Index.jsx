@@ -5,6 +5,11 @@ import { fetchLodgings } from '@/services/lodgingsService'
 import { useState, useEffect } from 'react'
 import { useBreakpoint } from '@/hooks/useBreakpoint'
 
+/**
+ * Page Index
+ * @returns {JSX.Element} La page Index
+ * @example <Index />
+ */
 export default function Index() {
 	const [lodgings, setLodgings] = useState([])
 	const [loading, setLoading] = useState(true)

@@ -1,6 +1,13 @@
 import './Slideshow.scss'
 import { useState, useEffect } from 'react'
 
+/**
+ * Component Slideshow
+ * @param {Object} props - Les props du component
+ * @param {Array<string>} props.pictures - Les images à afficher (obligatoire)
+ * @returns {JSX.Element} Le component Slideshow
+ * @example <Slideshow pictures={['/path/to/image1.jpg', '/path/to/image2.jpg', '/path/to/image3.jpg']} />
+ */
 export default function Slideshow({ pictures }) {
     const [currentIndex, setCurrentIndex] = useState(0)
     const [currentPicture, setCurrentPicture] = useState(pictures[currentIndex])
